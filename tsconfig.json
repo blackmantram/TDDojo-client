@@ -13,9 +13,9 @@
     ]
   },
   "compileOnSave": false,
-  "filesGlob": [
+  "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "!node_modules/**"
+    "node_modules/@types"
   ]
 }
