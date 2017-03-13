@@ -13,7 +13,7 @@ import {FooterComponent} from './footer';
 @NgModule({
   imports: [
     BrowserModule,
-    UIRouterModule.forRoot({states: STATES, configClass: MyUIRouterConfig}),
+    UIRouterModule.forRoot({states: STATES, otherwise: MyUIRouterConfig.otherwise()}),
     TechsModule
   ],
   declarations: [

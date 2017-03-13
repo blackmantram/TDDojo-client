@@ -13,7 +13,7 @@ export const STATES: Ng2StateDeclaration[] = [
 
 @Injectable()
 export class MyUIRouterConfig {
-  configure(uiRouter: UIRouter) {
-    uiRouter.urlRouterProvider.otherwise('App');
+  static otherwise() {
+    return 'App';
   }
 }
