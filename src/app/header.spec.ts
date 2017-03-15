@@ -15,6 +15,6 @@ describe('header component', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
     const header = fixture.nativeElement;
-    expect(header.querySelector('a').textContent.trim()).toBe('Fountain Generator');
+    expect(header.querySelector('a').textContent.trim()).toBe('TDDojo');
   });
 });

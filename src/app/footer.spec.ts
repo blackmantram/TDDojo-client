@@ -15,6 +15,6 @@ describe('footer component', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const footer = fixture.nativeElement;
-    expect(footer.querySelector('a').textContent.trim()).toBe('FountainJS team');
+    expect(footer.querySelector('a').textContent.trim()).toBe('TDDojo-client at Github');
   });
 });
