@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
-import {MainComponent} from './main';
+import {AppComponent} from './app.component';
 
 @Component({selector: 'fountain-footer', template: ''})
 class MockFooterComponent {}
@@ -13,7 +13,7 @@ describe('Main Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MainComponent,
+        AppComponent,
         MockFooterComponent,
         MockHeaderComponent,
         MockTitleComponent
@@ -23,7 +23,7 @@ describe('Main Component', () => {
   }));
 
   it('should render the header, title and footer', () => {
-    const fixture = TestBed.createComponent(MainComponent);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const main = fixture.nativeElement;
     expect(main.querySelector('fountain-header')).toBeDefined();

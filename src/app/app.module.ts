@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {UIView, UIRouterModule} from 'ui-router-ng2';
-import {STATES, MyUIRouterConfig} from './routes';
+import {UIRouterModule} from 'ui-router-ng2';
+import {STATES, MyUIRouterConfig} from './routes.config';
 
-import {MainComponent} from './main';
-import {HeaderComponent} from './header';
-import {TitleComponent} from './title';
-import {FooterComponent} from './footer';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header.component';
+import {TitleComponent} from './title.component';
+import {FooterComponent} from './footer.component';
 
 @NgModule({
   imports: [
@@ -14,11 +14,11 @@ import {FooterComponent} from './footer';
     UIRouterModule.forRoot({states: STATES, otherwise: MyUIRouterConfig.otherwise()})
   ],
   declarations: [
-    MainComponent,
+    AppComponent,
     HeaderComponent,
     TitleComponent,
     FooterComponent
   ],
-  bootstrap: [UIView]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

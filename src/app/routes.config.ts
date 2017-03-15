@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {UIRouter, Ng2StateDeclaration} from 'ui-router-ng2';
 
-import {MainComponent} from './main';
+import {AppComponent} from './app.component';
 
 export const STATES: Ng2StateDeclaration[] = [
   {
     name: 'App',
     url: '/',
-    component: MainComponent
+    component: AppComponent
   }
 ];
 

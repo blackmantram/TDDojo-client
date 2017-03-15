@@ -1,4 +1,4 @@
-import {TitleComponent} from './title';
+import {TitleComponent} from './title.component';
 import {TestBed, async} from '@angular/core/testing';
 
 describe('title component', () => {

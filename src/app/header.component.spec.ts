@@ -1,4 +1,4 @@
-import {HeaderComponent} from './header';
+import {HeaderComponent} from './header.component';
 import {TestBed, async} from '@angular/core/testing';
 
 describe('header component', () => {
