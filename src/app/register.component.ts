@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {UIRouter} from "ui-router-ng2";
+import {UIRouter} from 'ui-router-ng2';
 import {User} from './user';
 import {UserService} from './user.service';
 
@@ -9,7 +9,7 @@ import {UserService} from './user.service';
 })
 export class RegisterComponent {
 
-  user:User = new User();
+  user: User = new User();
 
   constructor(
     private userService: UserService,

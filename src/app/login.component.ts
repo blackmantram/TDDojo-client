@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {UIRouter} from "ui-router-ng2";
+import {UIRouter} from 'ui-router-ng2';
 import {User} from './user';
 import {UserService} from './user.service';
 
@@ -11,8 +11,8 @@ export class LoginComponent {
   user: User = new User();
 
   constructor(
-    private userService:UserService,
-    private uiRouter:UIRouter
+    private userService: UserService,
+    private uiRouter: UIRouter
   ) {}
 
   login() {

@@ -11,14 +11,14 @@ export class UserService {
 
   constructor(private http: Http) {}
 
-  register(user:User): Promise<User> {
+  register(user: User): Promise<User> {
     return this.http
               .post(this.serviceURL + 'register/', JSON.stringify(user), {headers: this.headers})
               .toPromise()
               .then(response => user)
               .catch(this.handleError);
   }
-  login(user:User): Promise<String> {
+  login(user: User): Promise<String> {
     return this.http
               .post(this.serviceURL + 'login/', JSON.stringify(user), {headers: this.headers})
               .toPromise()
