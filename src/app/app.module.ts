@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import {UIRouterModule} from 'ui-router-ng2';
+import { HttpModule }    from '@angular/http';
 
 import {STATES, OTHERWISE} from './routes.config';
 
@@ -18,6 +19,7 @@ import {UserService} from './user.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     UIRouterModule.forRoot({states: STATES, otherwise: OTHERWISE})
   ],
   declarations: [

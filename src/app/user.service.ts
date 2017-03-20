@@ -1,15 +1,33 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import { User } from './user';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  register(user:User): Promise<void> {
-    console.log('register: '+user);
-    return new Promise<void>((res,rej)=>res());
+
+  private serviceURL = 'http://127.0.0.1:8000/auth/';
+  private headers = new Headers({'Content-Type': 'application/json'});
+
+  constructor(private http: Http) {}
+
+  register(user:User): Promise<User> {
+    return this.http
+              .post(this.serviceURL + 'register/', JSON.stringify(user), {headers: this.headers})
+              .toPromise()
+              .then(response => user)
+              .catch(this.handleError);
   }
-  login(user:User): Promise<User> {
-    console.log('login: '+user);
-    return new Promise<User>((res,rej)=>res());
+  login(user:User): Promise<String> {
+    return this.http
+              .post(this.serviceURL + 'login/', JSON.stringify(user), {headers: this.headers})
+              .toPromise()
+              .then(response => response.json().auth_token)
+              .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
   }
 }
