@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {UIRouter} from 'ui-router-ng2';
 import {User} from './user';
-import {UserService} from './user.service';
+import {AuthService} from './auth.service';
 
 @Component({
   selector: 'login',
@@ -11,12 +11,12 @@ export class LoginComponent {
   user: User = new User();
 
   constructor(
-    private userService: UserService,
+    private AuthService: AuthService,
     private uiRouter: UIRouter
   ) {}
 
   login() {
-    this.userService.login(this.user)
+    this.AuthService.login(this.user)
       .then(token => this.continueWithLogin(token) );
   }
 
