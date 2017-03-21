@@ -17,10 +17,11 @@ export class LoginComponent {
 
   login() {
     this.AuthService.login(this.user)
-      .then(token => this.continueWithLogin(token) );
+      .then(token => this.continueWithLogin() )
+      .catch(error => console.log(error));
   }
 
-  private continueWithLogin(token: String) {
+  private continueWithLogin() {
     this.uiRouter.stateService.go('dashboard');
   }
 }

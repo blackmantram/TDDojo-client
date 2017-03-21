@@ -16,6 +16,7 @@ import {RegisterComponent} from './register.component';
 import {DashboardComponent} from './dashboard.component';
 
 import {AuthService} from './auth.service';
+import {UserService} from './user.service';
 
 @NgModule({
   imports: [
