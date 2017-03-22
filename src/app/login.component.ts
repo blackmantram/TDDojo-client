@@ -11,12 +11,12 @@ export class LoginComponent {
   user: User = new User();
 
   constructor(
-    private AuthService: AuthService,
+    private authService: AuthService,
     private uiRouter: UIRouter
   ) {}
 
   login() {
-    this.AuthService.login(this.user)
+    this.authService.login(this.user)
       .then(token => this.continueWithLogin() )
       .catch(error => console.log(error));
   }

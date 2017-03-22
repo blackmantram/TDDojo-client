@@ -12,12 +12,12 @@ export class RegisterComponent {
   user: User = new User();
 
   constructor(
-    private AuthService: AuthService,
+    private authService: AuthService,
     private uiRouter: UIRouter
   ) {}
 
   register() {
-    this.AuthService.register(this.user)
+    this.authService.register(this.user)
       .then(() => this.uiRouter.stateService.go('login'));
   }
 }

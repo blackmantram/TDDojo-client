@@ -2,8 +2,11 @@
   <p class="header-title">
     <a uiSref="welcome" uiSrefActive="active">TDDojo</a>
   </p>
-  <nav class="header-nav">
+  <nav [hidden]="isAuthenticated" class="header-nav">
     <a uiSref="login" uiSrefActive="active">Login</a>
     <a uiSref="register" uiSrefActive="active">Register</a>
+  </nav>
+  <nav [hidden]="!isAuthenticated" class="header-nav">
+    <a uiSref="logout" uiSrefActive="active">Logout</a>
   </nav>
 </header>

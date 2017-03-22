@@ -5,7 +5,7 @@ import {UserService} from './user.service';
 @Component({
   selector: 'dashboard',
   template: `
-    Bienvenido {{ user.username }}!
+    Welcome {{ user.username }}!
   `
 })
 export class DashboardComponent {

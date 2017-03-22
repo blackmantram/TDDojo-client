@@ -6,7 +6,7 @@ import {RegisterComponent} from './register.component';
 import {WelcomeComponent} from './welcome.component';
 import {DashboardComponent} from './dashboard.component';
 
-import {AuthService} from './auth.service';
+import {AuthChecker} from './auth-checker';
 
 const STATES = [
   { name: 'login', url: '/login', component: LoginComponent },
@@ -22,8 +22,8 @@ function configure(router: UIRouter) {
 
 function requireAuthentication(transition: Transition): any {
   let $state = transition.router.stateService;
-  let authSvc = transition.injector().get(AuthService);
-  return authSvc.checkAuthenticated().catch(() => $state.target('login'));
+  let checker = transition.injector().get(AuthChecker);
+  return checker.checkAuthenticated().catch(() => $state.target('login'));
 }
 
 export let routerConfig = {

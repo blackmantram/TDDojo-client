@@ -17,6 +17,7 @@ import {DashboardComponent} from './dashboard.component';
 
 import {AuthService} from './auth.service';
 import {UserService} from './user.service';
+import {AuthChecker} from './auth-checker';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import {UserService} from './user.service';
     RegisterComponent,
     DashboardComponent
   ],
-  providers: [ AuthService, UserService ],
+  providers: [ AuthService, UserService, AuthChecker ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

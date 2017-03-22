@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { User } from './user';
 import { UserService } from './user.service';
+import { AuthChecker } from './auth-checker';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -12,7 +13,8 @@ export class AuthService {
 
   constructor(
     private http: Http,
-    private userService: UserService
+    private userService: UserService,
+    private authChecker: AuthChecker
   ) {}
 
   register(user: User): Promise<void> {
@@ -30,11 +32,8 @@ export class AuthService {
               .catch(this.handleError);
   }
 
-  checkAuthenticated(): Promise<any> {
-    return Promise.resolve('ok'); // this.handleError('user not authenticated');
-  }
-
   private handleLogin(token: String): Promise<void> {
+    this.authChecker.toggle();
     return this.userService.retrieveUserInfo(token);
   }
 
