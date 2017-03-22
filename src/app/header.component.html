@@ -7,6 +7,6 @@
     <a uiSref="register" uiSrefActive="active">Register</a>
   </nav>
   <nav [hidden]="!isAuthenticated" class="header-nav">
-    <a uiSref="logout" uiSrefActive="active">Logout</a>
+    <a (click)="logout()">Logout</a>
   </nav>
 </header>

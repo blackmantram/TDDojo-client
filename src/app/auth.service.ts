@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { User } from './user';
 import { UserService } from './user.service';
-import { AuthChecker } from './auth-checker';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -13,8 +12,7 @@ export class AuthService {
 
   constructor(
     private http: Http,
-    private userService: UserService,
-    private authChecker: AuthChecker
+    private userService: UserService
   ) {}
 
   register(user: User): Promise<void> {
@@ -33,7 +31,6 @@ export class AuthService {
   }
 
   private handleLogin(token: String): Promise<void> {
-    this.authChecker.toggle();
     return this.userService.retrieveUserInfo(token);
   }
 

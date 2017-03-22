@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Http, Headers } from '@angular/http';
+import { AuthChecker } from './auth-checker';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -13,7 +14,8 @@ export class UserService {
   private user: User;
 
   constructor(
-    private http: Http
+    private http: Http,
+    private authChecker: AuthChecker
   ) {}
 
   retrieveUserInfo(token: String): Promise<void> {
@@ -21,7 +23,22 @@ export class UserService {
     return this.http
               .get(this.serviceURL + 'me/', {headers: this.getHeaders()})
               .toPromise()
-              .then(response => { this.user = response.json() as User; return Promise.resolve(); })
+              .then(response => {
+                this.authChecker.toggle();
+                this.user = response.json() as User;
+                return Promise.resolve();
+              })
+              .catch(this.handleError);
+  }
+
+  logout(): Promise<void> {
+    return this.http
+              .post(this.serviceURL + 'logout/', {}, {headers: this.headers})
+              .toPromise()
+              .then(response => {
+                this.authChecker.toggle();
+                return Promise.resolve();
+              })
               .catch(this.handleError);
   }
 

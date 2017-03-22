@@ -3,8 +3,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 @Injectable()
 export class AuthChecker {
 
-  private isAuthenticated: Boolean = false;
   authStatusChange: EventEmitter<Boolean> = new EventEmitter();
+  private isAuthenticated: Boolean = false;
 
   toggle() {
     this.isAuthenticated = !this.isAuthenticated;
