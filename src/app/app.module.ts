@@ -18,6 +18,7 @@ import {DashboardComponent} from './dashboard.component';
 import {AuthService} from './auth.service';
 import {UserService} from './user.service';
 import {AuthChecker} from './auth-checker';
+import {KataService} from './kata.service';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import {AuthChecker} from './auth-checker';
     RegisterComponent,
     DashboardComponent
   ],
-  providers: [ AuthService, UserService, AuthChecker ],
+  providers: [ AuthService, UserService, AuthChecker, KataService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
